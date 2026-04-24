@@ -22,6 +22,12 @@ jobs:
           node-version: 20
       - run: yarn install
       - run: yarn build
+        env:
+          VITE_API_BASE: ${{ vars.VITE_API_BASE }}
+          VITE_EMAILJS_SERVICE_ID: ${{ vars.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ vars.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ vars.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_LEVEL2_CODE: ${{ secrets.VITE_LEVEL2_CODE }}
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
