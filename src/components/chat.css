@@ -1,0 +1,212 @@
+/* Chat styles are fully scoped with the `ocw-` prefix to avoid collisions. */
+/* Uses your existing CSS variables: --background, --secondary, --card, --hover, --text, --disabled. */
+
+.ocw-toggle-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--disabled);
+  background: var(--card);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  z-index: 9999;
+}
+.ocw-toggle-btn:hover {
+  border-color: var(--hover);
+  box-shadow: 0 12px 38px rgba(223, 0, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.ocw-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 86px;
+  width: 360px;
+  height: 520px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--disabled);
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+/* Header */
+.ocw-header {
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--secondary), var(--hover));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ocw-header-title {
+  font-weight: 600;
+}
+.ocw-header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ocw-name {
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0 8px;
+  background: #00000033;
+  color: #fff;
+  outline: none;
+}
+.ocw-name::placeholder {
+  color: #ddd;
+}
+.ocw-badge {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #00000033;
+  color: #fff;
+}
+.ocw-badge.ocw-online {
+  background: #2f9e44;
+}
+.ocw-badge.ocw-offline {
+  background: #868e96;
+}
+
+/* Messages */
+.ocw-messages {
+  flex: 1;
+  background: #1a1a1a;
+  padding: 12px;
+  overflow-y: auto;
+}
+.ocw-row {
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+.ocw-row.visitor {
+  align-items: flex-end;
+}
+.ocw-row.agent {
+  align-items: flex-start;
+}
+
+.ocw-bubble {
+  max-width: 85%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  word-break: break-word;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ocw-bubble.visitor {
+  background: #2b2b2b;
+}
+.ocw-bubble.agent {
+  background: #151515;
+}
+.ocw-meta {
+  font-size: 11px;
+  color: #b9bcbc;
+  margin-bottom: 4px;
+}
+
+.ocw-empty {
+  color: #868e96;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Composer */
+.ocw-composer {
+  padding: 10px;
+  border-top: 1px solid var(--disabled);
+  background: var(--card);
+}
+.ocw-rowline {
+  display: flex;
+  gap: 8px;
+}
+.ocw-photo-line {
+  margin-top: 8px;
+}
+
+.ocw-input {
+  flex: 1;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--disabled);
+  padding: 0 10px;
+  background: #1a1a1a;
+  color: var(--text);
+}
+.ocw-input::placeholder {
+  color: #b9bcbc;
+}
+
+.ocw-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: var(--secondary);
+  color: #fff;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.ocw-send:hover {
+  filter: brightness(1.05);
+}
+.ocw-send:disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+}
+
+.ocw-choose {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px dashed var(--disabled);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  background: #1a1a1a;
+  color: var(--text);
+  white-space: nowrap;
+}
+.ocw-hidden-file {
+  display: none;
+}
+
+/* Scrollbar (WebKit) */
+.ocw-messages::-webkit-scrollbar {
+  width: 10px;
+}
+.ocw-messages::-webkit-scrollbar-track {
+  background: #151515;
+}
+.ocw-messages::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 8px;
+}
+.ocw-messages::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
