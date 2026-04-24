@@ -9,7 +9,7 @@ import NextLevel from "./components/NextLevel";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/nanosikharulidze2007">
         <Routes>
           <Route element={<Layout />} path="/">
             <Route element={<Home />} index />
